@@ -1,7 +1,6 @@
-# HSEL-SS15-IMG-CAS
-Chat Application Service
+## Chat Application Service
 Finale Abgabe im Modul "Internetanwendung Mobile Geräte" der Hochschule Emden/Leer im Sommersemester 2015.
-## Installation
+### Installation
 * Sourcecode von GitHub Clonen
 * In Ordner wechseln und ```npm install``` eingeben
 * MongoDB installieren
