@@ -8,3 +8,6 @@ Finale Abgabe im Modul "Internetanwendung Mobile Geräte" der Hochschule Emden/L
 * config.js Werte anpassen
 * CAS starten mit ```node server.js```
 * [http://localhost:3000/](http://localhost:3000/) öffnen
+
+### Aufbau
+![Aufbau](http://riddler2kone.de/github/2015-07-13_15-51-20_2.jpg)
