@@ -2,64 +2,80 @@
 <html>
 <head lang="de">
     <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="static/css/jquery-ui.css">
+    <script src="static/js/jquery-git2.min.js"></script>
+    <script src="static/js/jquery-ui.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+    <script src="static/js/bootstrap.min.js"></script>
+
     <% if(isDesktop) { %>
-    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/style.css"/>
     <% } else { %>
     <meta name=viewport content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=no'>
-    <link rel="stylesheet" href="static/css/mobile.css" />
+    <link rel="stylesheet" href="static/css/mobile.css"/>
     <% } %>
-    <link rel="stylesheet" href="static/css/jquery-ui.css">
-    <script src="static/js/jquery-git2.min.js" ></script>
-    <script src="static/js/jquery-ui.min.js" ></script>
-    <script src="/socket.io/socket.io.js"></script>
+
     <title>Chat Application Service - PA IMG - SS 2015</title>
 </head>
 <body>
 
-    <div id="title">Chat Application Service</div>
-    <div id="undertitle">Prüfungsaufgabe im Modul IMG, SS 2015</div>
+<div id="title">Chat Application Service</div>
+<div id="undertitle">Prüfungsaufgabe im Modul IMG, SS 2015</div>
 
-    <div id="before" style="position:absolute;"></div>
+<div id="before" style="position:absolute;"></div>
 
-    <% if(isDesktop) { %>
-    <button id="startwebcam" class="webcamstartandstop btn btn-primary">Video starten</button>
-    <button id="stopwebcam" class="webcamstartandstop btn btn-warning" style="display: none;">Stop Video</button>
-    <% } %>
+<% if(isDesktop) { %>
+<button id="startwebcam" class="webcamstartandstop btn btn-primary">Video starten</button>
+<button id="stopwebcam" class="webcamstartandstop btn btn-warning" style="display: none;">Stop Video</button>
+<% } %>
 
-    <div id="main_frame" class="frame">
-        <div id="main_windowtitle" class="windowtitle">Allgemein</div>
+<div class="panel panel-default frame" id="main_frame" style="width: 500px;">
+    <div class="panel-heading" id="main_windowtitle">
+        <h3 class="panel-title">Allgemein</h3>
+    </div>
+    <div class="panel-body">
+
         <div id="main_chat" class="chat"></div>
 
         <form id="main_form">
-            <input class="userinput" id="main_userinput" placeholder="Deine Nachricht..." autocomplete="off" type="text" />
+            <input class="userinput" id="main_userinput" placeholder="Deine Nachricht..." autocomplete="off"
+                   type="text"/>
+
+
+            <span class="btn btn-default btn-xs btn-file" style="display: inline-block">
+                <img src="static/images/camera.png" style="max-width: 16px;"/>
+                <input type="file" id="file" name="file" accept="image/*">
+            </span>
+
         </form>
-        <div id="filedialog">
-            <label class="filebutton">
-                <img src="static/images/camera.png" style="float: right; top: -30px; right: 10px; position:relative;" />
-                <span style="width: 20px;">
-                    <input style="float: right;width: 20px;" type="file" id="file" name="file" accept="image/*">
-                </span>
-            </label>
-        </div>
-
 
     </div>
+</div>
 
-    <% if(isDesktop) { %>
-    <canvas width="320" height="240" id="preview" style="display: none;"></canvas>
-    <video autoplay="true" id="client" style="width: 320px; height: 240px; display: none;"></video>
-    <div id="whosonline">
-        <div  class="windowtitle">Wer ist online?</div>
+<% if(isDesktop) { %>
+<canvas width="320" height="240" id="preview" style="display: none;"></canvas>
+<video autoplay="true" id="client" style="width: 320px; height: 240px; display: none;"></video>
+
+<div class="panel panel-default " id="whosonline">
+    <div class="panel-heading" id="main_windowtitle">
+        <h3 class="panel-title">Wer ist online?</h3>
     </div>
-    <% } %>
+    <div class="panel-body" id="whosonline_body">
+    </div>
+</div>
 
-    <script src="static/js/client.js"></script>
-    <% if(isDesktop) { %>
-    <script src="static/js/client-desktop.js"></script>
-    <% } else { %>
-    <script src="static/js/client-mobile.js"></script>
-    <% } %>
+<% } %>
 
+<script src="static/js/client.js"></script>
+<% if(isDesktop) { %>
+<script src="static/js/client-desktop.js"></script>
+<% } else { %>
+<script src="static/js/client-mobile.js"></script>
+<% } %>
 
 </body>
 </html>

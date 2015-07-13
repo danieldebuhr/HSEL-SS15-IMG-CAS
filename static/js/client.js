@@ -147,7 +147,7 @@ function showOnline(online) {
 function addUserOnline(user) {
     setTimeout(function() {
         if(!$("#online_" + user.id).length) {
-            $("#whosonline").append("<li id='online_" + user.id + "' style='display: none; cursor:pointer;'>" + user.username + "</li>");
+            $("#whosonline_body").append("<li id='online_" + user.id + "' style='display: none; cursor:pointer;'>" + user.username + "</li>");
             setTimeout(function() {
                 $("#online_" + user.id).fadeIn();
                 $("#online_" + user.id).click(function() {
@@ -194,8 +194,13 @@ function startPrivateChat(user, callback) {
 
     var newFrame = $("<div/>", {
         id: "frame_" + user_id,
-        class: 'frame',
+        class: 'panel panel-default',
         style: 'display: none;'
+    });
+
+    var newPanelBody = $("<div/>", {
+       id: "panelbody_" + user_id,
+        class: 'panel-body'
     });
 
     var newChat = $("<div/>", {
@@ -211,7 +216,12 @@ function startPrivateChat(user, callback) {
 
     var newChatTitle = $("<div/>", {
         id: "windowtitle_" + user_id,
-        class: 'windowtitle'
+        class: 'panel-heading'
+    });
+
+    var newChatTitleH3 = $("<h3/>", {
+        id: "windowtitleh3_" + user_id,
+        class: 'panel-title'
     });
 
     var newUserinput = $("<input/>", {
@@ -226,31 +236,33 @@ function startPrivateChat(user, callback) {
     });
 
 
+    newChatTitleH3.appendTo(newChatTitle);
     newChatTitle.appendTo(newFrame);
-    newChat.appendTo(newFrame);
+    newChat.appendTo(newPanelBody);
+    newPanelBody.appendTo(newFrame);
     newUserinput.appendTo(newForm);
-    newForm.appendTo(newFrame);
+    newForm.appendTo(newPanelBody);
     newFrame.appendTo(outerFrame);
     outerFrame.appendTo($("#before"));
 
     // Mit setTimeout dafür sorgen, dass die folgenden Aufgaben im Eventloop warten müssen
     setTimeout(function() {
 
-        newChatTitle.html(user.username);
+        newChatTitleH3.text(user.username);
         //closeImg.appendTo(newChatTitle);
 
         newFrame.css("height", "200px");
         //newFrame.css("top", "-500px");
         newFrame.css("left", "600px");
 
-        newChat.css("height", newFrame.height() - 92);
-        newUserinput.css("width", newFrame.width() - 20);
+        newChat.css("height", newFrame.height() - 112);
+        newUserinput.css("width", newFrame.width() - 40);
 
         newFrame.resizable();
 
         newFrame.resize(function() {
-            newChat.css("height", newFrame.height() - 92);
-            newUserinput.css("width", newFrame.width() - 20);
+            newChat.css("height", newFrame.height() - 112);
+            newUserinput.css("width", newFrame.width() - 40);
         });
 
         newForm.submit(function () {

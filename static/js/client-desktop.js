@@ -78,26 +78,14 @@ $("document").ready(function() {
  */
 function resizeWindow() {
     var frame = $("#main_frame");
-    $("#main_chat").css("height", frame.height() - 92);
+    $("#main_chat").css("height", frame.height() - 122);
     $("#main_userinput").css("width", frame.width() - 62);
-
+    chatScrollTop($("#main_chat"));
 }
 
 function createNewWebcam(user, callback) {
 
     var user_id = user.id;
-
-    var newOuterWebcam = $("<div/>", {
-        id: "webcam_" + user_id,
-        class: 'webcamframe'
-    });
-
-    var newWebcamTitle = $("<div/>", {
-        id: "webcam_windowtitle_" + user_id,
-        class: 'windowtitle'
-    });
-
-    newWebcamTitle.html(user.username);
 
     var newReceiver = $("<img/>", {
         id: "webcam_receiver_" + user_id,
@@ -107,12 +95,36 @@ function createNewWebcam(user, callback) {
         height: 240
     });
 
+    var newFrame = $("<div/>", {
+        class: 'panel panel-default webcamframe'
+    });
 
-    newWebcamTitle.appendTo(newOuterWebcam);
-    newReceiver.appendTo(newOuterWebcam);
+    var newPanelBody = $("<div/>", {
+        id: "webcam_" + user_id,
+        class: 'panel-body'
+    });
 
-    newOuterWebcam.appendTo($("#before"));
-    newOuterWebcam.draggable();
+    var newChatTitle = $("<div/>", {
+        id: "webcam_windowtitle_" + user_id,
+        class: 'panel-heading'
+    });
+
+    var newChatTitleH3 = $("<h3/>", {
+        id: "webcam_windowtitleh3_" + user_id,
+        class: 'panel-title'
+    });
+
+    newChatTitleH3.html(user.username);
+    newChatTitleH3.appendTo(newChatTitle);
+    newChatTitle.appendTo(newFrame);
+
+    newReceiver.appendTo(newPanelBody);
+    newPanelBody.appendTo(newFrame);
+
+
+    newFrame.appendTo($("#before"));
+    newFrame.draggable();
+
 
     callback();
 

@@ -43,72 +43,40 @@ body {
     height: 600px;
     top: 50px;
     left: 50px;
-    border: 1px solid #89898a;
-    border-right-color: #4d4d4d;
-    border-bottom-color: #4d4d4d;
-    padding: 6px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    background-color: #5d5d5d;
 }
 .webcamframe {
     position: absolute;
-    width:320px;
-    height: 270px;
     top: 50px;
     left: 600px;
-    border: 1px solid #89898a;
-    border-right-color: #4d4d4d;
-    border-bottom-color: #4d4d4d;
-    padding: 6px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    background-color: #5d5d5d;
 }
 .chat {
     top: 0px;
     position: relative;
-    border: 1px solid black;
     height: 225px;
     overflow: auto;
-    background-color: #252525;
-    color: aliceblue;
+    color: #252525;
+    background-color: white;
     padding: 10px;
-    margin-bottom: 6px;
-    margin-top: 6px;
+    margin-bottom: 20px;
 }
 
 .chat li {
     list-style-type: none;
 }
-.windowtitle {
-    background-color: #888888;
-    border: 1px solid #89898a;
-    border-right-color: #4d4d4d;
-    border-bottom-color: #4d4d4d;
-    padding: 3px;
-    font-weight: bold;
-    color: #484848;
-    text-align: center;
-    cursor: move;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;
-}
+
 .userinput {
     position: relative;
     top: 0;
-    border: 1px solid gray;
-    height: 23px;
+    border: 1px solid #cccccc;
+    height: 30px;
     width: 740px;
-    padding: 3px 3px 3px 10px;
-    color: #cbcbcb;
-    background-color: #3f3f3f;
-    -webkit-border-radius: 5px;
+    padding: 10px;
+    color: #3f3f3f;
+    font-size: 12pt;
+    background-color: #f4f4f4;
+    /* -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 #camera {
     position: absolute;
@@ -138,59 +106,37 @@ body {
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-.webcamimage {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    height: auto;
-    width: auto;
-    max-width: 320px;
-    max-height: 240px;
-    margin-top: 5px;
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
 }
-label.filebutton {
-    width:40px;
-    height:40px;
-    overflow:hidden;
-    position:relative;
-    background-color:#ccc;
-    cursor: pointer;
-    top: 2px;
-    right: 5px;
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }
 
-label span input {
-    z-index: 999;
-    line-height: 0;
-    font-size: 50px;
-    position: absolute;
-    top: -2px;
-    left: -700px;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    -ms-filter: "alpha(opacity=0)";
-    cursor: pointer;
-    _cursor: hand;
-    margin: 0;
-    padding:0;
-}
 
 #whosonline {
     position: absolute;
-    top: 150px;
+    top: 180px;
     right: 30px;
-    border: 1px solid #89898a;
-    border-right-color: #4d4d4d;
-    border-bottom-color: #4d4d4d;
-    background-color: #5d5d5d;
-    padding: 6px;
-    margin: 3px;
-    color: white;
-    list-style-type: square;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
     min-width: 150px;
+    width: 150px;
+}
+#whosonline_body {
+    list-style-type: square;
 }
 
 .closeimage {
