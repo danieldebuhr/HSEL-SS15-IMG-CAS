@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="de">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/jquery-ui.css">
+    <script src="static/js/jquery-git2.min.js" ></script>
+    <script src="static/js/jquery-ui.min.js" ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Chat Application Service - PA IMG - SS 2015</title>
+</head>
+<body>
+
+<div id="title">Chat Application Service</div>
+<div id="undertitle">Prüfungsaufgabe im Modul IMG, SS 2015</div>
+
+<div id="before" style="position:absolute;"></div>
+
+<div id="main_frame" class="frame">
+    <div id="main_windowtitle" class="windowtitle">Protokoll (<%=message_history.length%> Nachrichten)</div>
+    <div id="main_chat" class="chat"></div>
+</div>
+
+<script>
+
+    $("document").ready(function() {
+
+        var chatWindow = $("#main_chat");
+
+        <%
+        // Alle Nachrichten durchlaufen und Chat-Window hinzufügem
+        message_history.forEach(function(his) {
+
+            if(his.type == "message") {
+                %>
+                chatWindow.append($('<li>').html("<%=his.user.username%>: " + replaceSmileys("<%=his.data%>")));
+                <%
+            } else if(his.type == "image") {
+                %>
+                chatWindow.append("<table><tr><td valign='middle'><%=his.user.username%>: " +
+                "</td><td>" +
+                "<img class='image' src='<%=his.data%>'/>" +
+                "</td></tr></table>");
+                <%
+            }
+
+        });
+
+        %>
+
+    });
+
+    function getChatTime(time) {
+        time_hours = ((time.getHours() < 10) ? "0" + time.getHours() : time.getHours());
+        time_minutes = ((time.getMinutes() < 10) ? "0" + time.getMinutes() : time.getMinutes());
+        return "<small>[" + time_hours + ":" + time_minutes + "]</small>";
+    }
+
+    function replaceSmileys(text) {
+
+        var smileys = {
+            'smiley':   [":-)", "smiley.png"],
+            'smiley2':  [":)", "smiley.png"],
+            'sad' :     [":-(", "sad.png"],
+            'sad2' :    [":(", "sad.png"]
+        };
+
+        for(var key in smileys)
+            if(text.indexOf(smileys[key][0]) != -1)
+                text = text.replace(smileys[key][0], "<img src='static/smiley/"+smileys[key][1]+"' />");
+
+        return text;
+    }
+
+
+</script>
+
+<button id="zurück" class="webcamstartandstop" onclick="window.location.href = '/';">zurück</button>
+
+<script src="static/js/client-desktop.js"></script>
+
+</body>
+</html>

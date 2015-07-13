@@ -1,0 +1,92 @@
+body {
+    padding: 0;
+    margin:5px;
+    background-color: #494949;
+    font-family:    Calibri, serif;
+    overflow: hidden;
+}
+.system {
+    font-weight: bold;
+    color: rgba(198, 144, 226, 0.75)
+}
+.typing {
+    color: #CDFFA2;
+}
+.image {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 100px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#title {
+    display: none;
+}
+
+#undertitle {
+    display: none;
+}
+
+.frame {
+
+}
+
+.chat {
+    height: 400px;
+    width: 290px;
+    border: 1px solid black;
+    overflow: auto;
+    background-color: #252525;
+    color: aliceblue;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: fixed;
+    -webkit-overflow-scrolling: touch;
+}
+
+.windowtitle {
+    display: none;
+}
+
+.chat li {
+    list-style-type: none;
+}
+
+.userinput {
+    top: 440px;
+    width: 240px;
+    -webkit-appearance: none;
+    font-size: 16pt;
+    position: fixed;
+}
+#filedialog {
+    position: fixed;
+    right: 4px;
+    top: 475px;
+}
+label.filebutton {
+    width:40px;
+    height:40px;
+    overflow:hidden;
+    position:relative;
+    background-color:#252525;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}

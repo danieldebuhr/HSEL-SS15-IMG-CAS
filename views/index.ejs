@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>Chat Application Service - PA IMG - SS 2015</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/css/style.css" />
+    <script src="static/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div id="title">Chat Application Service</div>
+    <div id="undertitle">Prüfungsaufgabe im Modul IMG, SS 2015</div>
+
+    <div class="center">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Anmeldung am CAS</h3>
+                </div>
+                <div class="panel-body" style="text-align: center">
+                    <% if(username.length > 0) { %>
+                    <h2>Angemeldet als <%=username%></h2>
+                    <a href="/chat" class="btn btn-success"><span class="fa fa-user"></span> Zum Chat</a>
+                    <a href="/history" class="btn btn-info"><span class="fa fa-user"></span> Protokoll</a>
+                    <a href="/logout" class="btn btn-default"><span class="fa fa-user"></span> Abmelden</a>
+                    <% } else { %>
+                    <a href="/anmelden" class="btn btn-primary"><span class="fa fa-user"></span> Anmelden</a>
+                    <a href="/registrieren" class="btn btn-info"><span class="fa fa-user"></span> Registrieren</a>
+                    <% } %>
+                </div>
+            </div>
+
+    </div>
+
+
+</body>
+</html>

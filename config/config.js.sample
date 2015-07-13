@@ -1,0 +1,12 @@
+module.exports = {
+    'mongostore': {
+        'port' : '12345',
+        'db': 'sessions'
+    },
+    'allgemein': {
+        port: '3000'
+    },
+    'mongo': {
+        'url': 'mongodb://localhost:12345/cas'
+    }
+};
